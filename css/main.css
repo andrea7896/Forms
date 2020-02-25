@@ -103,4 +103,29 @@ body {
     display: list-item;
 }
 
+.divs-container{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.desplegable{
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+}
+.desplegable li{
+    padding: 5px;
+}
+.desplegable input{
+    border-radius: 10px;
+    height: 30px;
+}
+.desplegable p{
+    font-weight: bold;
+    color: royalblue;
+}
 
+.error{
+    border: 3px solid rgb(221, 55, 55);
+    border-radius: 5px;
+}

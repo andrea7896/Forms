@@ -37,11 +37,11 @@
                 </li>
                 <li>
                     <label for="email">Email</label>
-                    <input type="text" id="email" placeholder="Enter your email here">
+                    <input type="text" onblur="validateEmail()" id="email" placeholder="Enter your email here">
                 </li>
                 <li>
                     <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password here">
+                    <input type="password" onblur="validatePassword()" id="password" placeholder="Enter your password here">
                 </li>
                 <li>
                     <label for="phone">Phone</label>
@@ -51,36 +51,136 @@
                     <p>Vehicle</p>
                     <ul class="vehicle">
                         <li>
-                            <input type="checkbox" id="car" name="car" value="car">
+                            <input type="checkbox" onclick="showCar()" id="car" name="car" value="car">
                             <label for="car">I have a Car</label>
                         </li>
                         <li>
-                            <input type="checkbox" id="bike" name="bike" value="bike">
+                            <input type="checkbox" onclick="showBike()" id="bike" name="bike" value="bike">
                             <label for="bike">I have a Bike</label>
                         </li>
                         <li>
-                            <input type="checkbox" id="motorcycle" name="motorcycle" value="motorcycle">
+                            <input type="checkbox" onclick="showMoto()" id="motorcycle" name="motorcycle" value="motorcycle">
                             <label for="motorcycle">I have a Motorcycle</label>
                         </li>
                     </ul>
                 </li>
+                <div class="divs-container">
+                <div id="div-car" class="desplegable hidden">
+                    <p>CAR</p>
+                    <li>
+                    <label for="make-car">Make</label>
+                    <input type="text" id="5" name="Make of car"  onblur="checkString(this)" onkeypress="checkString(this)" placeholder="make it like...">
+                    </li>
+                    <li>
+                    <label for="model-car">Model</label>
+                    <input type="text" id="6" name="Moder of car" onblur="checkString(this)" onkeypress="checkString(this)" placeholder="which model">
+                    </li>
+                    <li>
+                    <label for="color-car">Color</label>
+                    <select id="color-car">
+                        <option value="red">Red</option>
+                        <option value="orange">Orange</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                    </select>
+                    </li>
+                    <li>
+                    <label for="doors-car">Doors</label>
+                    <input type="text" id="doors-car" onblur="validateDoors()" placeholder="How many doors...">
+                    </li>    
+                </div>
+
+                <div id="div-bike" class="desplegable hidden">
+                    <p>BIKE</p>
+                    <li>
+                    <label for="make" >Make</label>
+                    <input type="text" id="7" name="Make of Bike" onblur="checkString(this)" onkeypress="checkString(this)" placeholder="make it like...">
+                    </li>
+                    <li>
+                    <label for="Type">Type</label>
+                    <input type="text" id="8" name="Type of Bike" onblur="checkString(this)" onkeypress="checkString(this)" placeholder="which type">
+                    </li>
+                    <li>
+                    <label for="color">Color</label>
+                    <select id="color">
+                        <option value="red">Red</option>
+                        <option value="orange">Orange</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                    </select>
+                    </li>
+                    <li>
+                        <p>Accesories</p>
+                        <ul class="vehicle">
+                            <li>
+                                <input type="checkbox" id="bell" value="bell">
+                                <label for="bell">Little Bell</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="basket" value="basket">
+                                <label for="basket">Basket</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="tools" value="motorcycle">
+                                <label for="motorcycle">Bike tools</label>
+                            </li>
+                        </ul>
+                    </li>  
+                </div>
+
+                <div id="div-moto" class="desplegable hidden">
+                    <p>MOTORCYCLE</p>
+                    <li>
+                    <label for="make">Make</label>
+                    <input type="text" id="9" name="Make of Motorcycle" onblur="checkString(this)" onkeypress="checkString(this)"placeholder="make it like...">
+                    </li>
+                    <li>
+                    <label for="Type">Model</label>
+                    <input type="text" id="10" name="Model of Motorcycle" onblur="checkString(this)" onkeypress="checkString(this)" placeholder="which model">
+                    </li>
+                    <li>
+                        <label for="color">Color</label>
+                        <select id="color">
+                            <option value="red">Red</option>
+                            <option value="orange">Orange</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                        </select>
+                        </li>
+                    <li>
+                    <p>TYPE</p>
+                    <div>
+                    <input type="radio" id="city" name="group1" value="city">
+                    <label for="city">City</label>
+                    <input type="radio" id="road" name="group1" value="Road">
+                    <label for="road">Road</label> 
+                    <input type="radio" id="all-terrain" name="group1" value="All-terrain">
+                    <label for="all-terrain">All-Terrain</label> 
+                    </div>
+                    </li>
+                    
+                </div>
+                </div>
                 <li>
                     <label for="comments">Comments</label>
-                    <textarea rows="6" id="comments" placeholder="Enter your comments here"></textarea>
+                    <textarea rows="6" id="comments" onblur="validateComments()" placeholder="Enter your comments here"></textarea>
                 </li>
                 <li class="error-list hidden">
                     <label>Error</label>
                     <ul>
-                        <li>first name</li>
+                        
                     </ul>
                 </li>
                 <li>
-                    <button type="submit">Submit</button>
+                    <button type="button"  onclick="requiredfield(),validatePassword()">Submit</button>
                 </li>
             </ul>
         </fieldset>
     </form>
 </section>
-<script type="text/javascript" src="js/main.js"></script>
+<script s src="js/main.js"></script>
 </body>
 </html>
